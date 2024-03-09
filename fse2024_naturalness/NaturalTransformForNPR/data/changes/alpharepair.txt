@@ -1,0 +1,742 @@
+==============================
+naming-20
+------------------------------
+None
+------------------------------
+- pos = findWrapPos(text, width, nextLineTabStop);
+
++ pos = findWrapPos(text, width, -1);
+==============================
+naming-24
+------------------------------
+None
+------------------------------
+- while ((pos <= text.length()) && ((c = text.charAt(pos)) != ' ') && (c != '\n') && (c != '\r')) { ++pos; }
+
++ if (pos == -1) {}
+==============================
+naming-41
+------------------------------
+None
+------------------------------
+- if (target != null) {
+
++ if (target != null && target.getType() == Token.STRING) {
+==============================
+naming-69
+------------------------------
+None
+------------------------------
+- if (node.getType() == Token.CALL) { Node child = node.getFirstChild(); if (child.getType() == Token.NAME) { changed.add(child.getString());
+
++ if (node.getType() == Token.CALL) { Node child = node.getFirstChild(); if (child.getType() == Token.NAME) { changed.add(child.getString()); } else { changed. clear ( ) ;
+==============================
+naming-73
+------------------------------
+- long l = getEncodeLength(binaryData, MIME_CHUNK_SIZE, CHUNK_SEPARATOR);
+
++ int l = binaryData.length;
+------------------------------
+None
+==============================
+naming-106
+------------------------------
+None
+------------------------------
+- out.append(recordSeparator); newRecord = true;
+
++ if (recordSeparator!= null) out.append(recordSeparator); newRecord = true;
+==============================
+naming-129
+------------------------------
+- int n = (len == MAX_SEGMENT_LEN) ? (MAX_SEGMENT_LEN + 1) : Math.min(MAX_SEGMENT_LEN, len + (len >> 1));
+
++ int n = (int) (len + (len >> 1));
+------------------------------
+None
+==============================
+naming-132
+------------------------------
+- if (i <= m) {
+
++ if (i < codes.length) {
+------------------------------
+- if (i <= maxCode) {
+
++ if (i < INT_SPACE) {
+==============================
+naming-134
+------------------------------
+- return (previous != null) && previous.equals(a);
+
++ return previous == null || previous.equals(a);
+------------------------------
+None
+==============================
+naming-188
+------------------------------
+- } else if (("td".equals(n) || "td".equals(n) && !last)) {
+
++ } else if (!(last)) {
+------------------------------
+None
+==============================
+naming-195
+------------------------------
+None
+------------------------------
+- attributes.remove(attrKey);
+
++ attributes = null;
+==============================
+naming-206
+------------------------------
+None
+------------------------------
+- throw new JXPathException( "Cannot compare pointers that do not belong to the same tree: '" + p1 + "' and '" + p2 + "'");
+
++ return depth2;
+==============================
+naming-230
+------------------------------
+None
+------------------------------
+- classes[i] = array[i].getClass();
+
++ if (array[i]!= null) classes[i] = array[i].getClass();
+==============================
+naming-231
+------------------------------
+None
+------------------------------
+- classes[i] = array[i].getClass();
+
++ if (array[i]!= null) classes[i] = array[i].getClass();
+==============================
+naming-272
+------------------------------
+None
+------------------------------
+- if (MathUtils.compareTo(entry, 0, epsilon) >= 0) {
+
++ if (entry>= 0) {
+==============================
+naming-293
+------------------------------
+- return StringDescription.toString(m).equals(a.toString());
+
++ return a!= null && StringDescription.toString(m).equals(a.toString());
+------------------------------
+None
+==============================
+naming-322
+------------------------------
+- long len = getEncodeLength(bd, MIME_CHUNK_SIZE, CHUNK_SEPARATOR);
+
++ long len = getEncodeLength(bd, bd.length, CHUNK_SEPARATOR);
+------------------------------
+None
+==============================
+naming-332
+------------------------------
+None
+------------------------------
+- out.append(recordSeparator); newRecord = true;
+
++ if (recordSeparator!= null) out.append(recordSeparator); newRecord = true;
+==============================
+naming-351
+------------------------------
+- id = generator.generateId(fp); return id;
+
++ if (id == null) id= generator.generateId(fp); return id;
+------------------------------
+None
+==============================
+naming-361
+------------------------------
+None
+------------------------------
+- attributes.remove(attrKey);
+
++ attributes = null;
+==============================
+naming-381
+------------------------------
+None
+------------------------------
+- str.getChars(0, strLen, buffer, size);
+
++ str.getChars(0, width,buffer, size);
+==============================
+naming-382
+------------------------------
+None
+------------------------------
+- int len = thisBuf.length - strLen;
+
++ int len = size - 1;
+==============================
+naming-423
+------------------------------
+None
+------------------------------
+- while ((pos <= text.length()) && ((c = text.charAt(pos)) != ' ') && (c != '\n') && (c != '\r')) { ++pos; }
+
++ if (pos == -1) {}
+==============================
+naming-428
+------------------------------
+- if (x < 0 && c == '-') {
+
++ if (c== '-') {
+------------------------------
+None
+==============================
+naming-435
+------------------------------
+None
+------------------------------
+- if (target != null) {
+
++ if (target != null && target.getType() == Token.STRING) {
+==============================
+naming-443
+------------------------------
+None
+------------------------------
+- if (c > 0x1f && c <= 0x7f) {
+
++ if (c > 0x1f && c < 0x7f) {
+==============================
+naming-465
+------------------------------
+None
+------------------------------
+- if (node.getType() == Token.CALL) { Node child = node.getFirstChild(); if (child.getType() == Token.NAME) { changed.add(child.getString());
+
++ if (node.getType() == Token.CALL) { Node child = node.getFirstChild(); if (child.getType() == Token.NAME) { changed.add(child.getString()); } else { changed. clear ( ) ;
+==============================
+naming-466
+------------------------------
+None
+------------------------------
+- if (node.getType() == Token.CALL) { Node child = node.getFirstChild(); if (child.getType() == Token.NAME) { changed.add(child.getString());
+
++ if (node.getType() == Token.CALL) { Node child = node.getFirstChild(); if (child.getType() == Token.NAME) { changed.add(child.getString()); } else { changed. clear ( ) ;
+==============================
+naming-472
+------------------------------
+- long len = getEncodeLength(array, MIME_CHUNK_SIZE, CHUNK_SEPARATOR);
+
++ int len = array.length;
+------------------------------
+None
+==============================
+naming-491
+------------------------------
+None
+------------------------------
+- out.append(recordSeparator); newRecord = true;
+
++ if (recordSeparator!= null) out.append(recordSeparator); newRecord = true;
+==============================
+naming-496
+------------------------------
+- final boolean empty = header.trim().isEmpty();
+
++ final boolean empty = containsHeader;
+------------------------------
+- final boolean emptyHeader = header.trim().isEmpty();
+
++ final boolean emptyHeader = header == null || header.trim().isEmpty();
+==============================
+naming-509
+------------------------------
+- int newLen = (n == MAX_SEGMENT_LEN) ? (MAX_SEGMENT_LEN + 1) : Math.min(MAX_SEGMENT_LEN, n + (n >> 1));
+
++ int  newLen = n + (n >> 1);
+------------------------------
+None
+==============================
+naming-518
+------------------------------
+- if (i <= b) {
+
++ if (i < codes.length) {
+------------------------------
+- if (i <= maxCode) {
+
++ if (i < INT_SPACE) {
+==============================
+naming-536
+------------------------------
+- id = generator.generateId(data); return id;
+
++ if (id == null) id= generator.generateId(data); return id;
+------------------------------
+None
+==============================
+naming-552
+------------------------------
+None
+------------------------------
+- paramName = candidate.findImplicitParamName(0);
+
++ paramName = candidate.paramName(0);
+==============================
+naming-573
+------------------------------
+- } else if (("td".equals(name) || "td".equals(name) && !selected)) {
+
++ } else if (!(selected)) {
+------------------------------
+None
+==============================
+naming-607
+------------------------------
+None
+------------------------------
+- classes[i] = array[i].getClass();
+
++ if (array[i]!= null) classes[i] = array[i].getClass();
+==============================
+naming-650
+------------------------------
+None
+------------------------------
+- if (MathUtils.compareTo(entry, 0, epsilon) >= 0) {
+
++ if (entry>= 0) {
+==============================
+naming-668
+------------------------------
+- return StringDescription.toString(m).equals(o.toString());
+
++ return o!= null && StringDescription.toString(m).equals(o.toString());
+------------------------------
+None
+==============================
+naming-673
+------------------------------
+- } else if (ret > 0) {
+
++ } else if (ret >  offsetAdjusted) { } else {
+------------------------------
+None
+==============================
+naming-699
+------------------------------
+None
+------------------------------
+- if (target != null) {
+
++ if (target != null && target.getType() == Token.STRING) {
+==============================
+naming-704
+------------------------------
+None
+------------------------------
+- if (c > 0x1f && c <= 0x7f) {
+
++ if (c > 0x1f && c < 0x7f) {
+==============================
+naming-740
+------------------------------
+None
+------------------------------
+- out.append(recordSeparator); newRecord = true;
+
++ if (recordSeparator!= null) out.append(recordSeparator); newRecord = true;
+==============================
+naming-750
+------------------------------
+- if (i <= offset) {
+
++ if (i < codes.length) {
+------------------------------
+- if (i <= maxCode) {
+
++ if (i < INT_SPACE) {
+==============================
+naming-761
+------------------------------
+- id = generator.generateId(name); return id;
+
++ if (id == null) id= generator.generateId(name); return id;
+------------------------------
+None
+==============================
+naming-783
+------------------------------
+- } else if (("td".equals(text) || "td".equals(text) && !last)) {
+
++ } else if (!(last)) {
+------------------------------
+None
+==============================
+naming-788
+------------------------------
+- return (character >= 'A' && character <= 'Z') || (character >= 'a' && character <= 'z');
+
++ return (character >= 'A' && character <= 'Z') ||  Character. isLetter ( character ) ;
+------------------------------
+None
+==============================
+naming-806
+------------------------------
+None
+------------------------------
+- return cAvailableLocaleSet.contains(locale);
+
++ return cAvailableLocaleSet == null ||cAvailableLocaleSet.contains(locale);
+==============================
+naming-827
+------------------------------
+None
+------------------------------
+- if (MathUtils.compareTo(entry, 0, epsilon) >= 0) {
+
++ if (entry>= 0) {
+==============================
+naming-830
+------------------------------
+- if (c * v == 0) {
+
++ if (c == 0 || v == 0) {
+------------------------------
+None
+==============================
+naming-844
+------------------------------
+- } else if (offset > 0) {
+
++ } else if (offset >  offsetAdjusted) { } else {
+------------------------------
+None
+==============================
+naming-863
+------------------------------
+None
+------------------------------
+- if (target != null) {
+
++ if (target != null && target.getType() == Token.STRING) {
+==============================
+naming-867
+------------------------------
+None
+------------------------------
+- if (c > 0x1f && c <= 0x7f) {
+
++ if (c > 0x1f && c < 0x7f) {
+==============================
+naming-895
+------------------------------
+None
+------------------------------
+- out.append(recordSeparator); newRecord = true;
+
++ if (recordSeparator!= null) out.append(recordSeparator); newRecord = true;
+==============================
+naming-910
+------------------------------
+- id = generator.generateId(ids); return id;
+
++ if (id == null) id= generator.generateId(ids); return id;
+------------------------------
+None
+==============================
+naming-945
+------------------------------
+None
+------------------------------
+- return cAvailableLocaleSet.contains(locale);
+
++ return cAvailableLocaleSet == null ||cAvailableLocaleSet.contains(locale);
+==============================
+naming-960
+------------------------------
+None
+------------------------------
+- if (MathUtils.compareTo(entry, 0, epsilon) >= 0) {
+
++ if (entry>= 0) {
+==============================
+naming-962
+------------------------------
+- if (b * v == 0) {
+
++ if (b == 0 || v == -0) {
+------------------------------
+None
+==============================
+expression-5
+------------------------------
+- } else if (null != n.getJSType() && parent.isAssign()) { return;
+
++ } else if (objNode.isAssign() && parent.isAssign()) { return;
+------------------------------
+None
+==============================
+expression-10
+------------------------------
+None
+------------------------------
+- if (target != null) {
+
++ if (target != null && target.getType() == Token.STRING) {
+==============================
+expression-12
+------------------------------
+None
+------------------------------
+- if (c > 0x1f && c <= 0x7f) {
+
++ if (c > 0x1f && c < 0x7f) {
+==============================
+expression-19
+------------------------------
+None
+------------------------------
+- boolean allNUL = true; for (int i = start; i < end; i++){ if (buffer[i] != 0){ allNUL = false; break; } } if (allNUL) {
+
++ boolean allNUL = true; for (int i = start; i < end; i++){ if (buffer[i] != 0){  allNUL = false; break; }
+==============================
+expression-33
+------------------------------
+- return ('A' <= c && 'Z' >= c) || ('a' <= c && 'z' >= c);
+
++ return ('A' <= c && 'Z' >= c) || ('a' <=  c) ;
+------------------------------
+None
+==============================
+expression-37
+------------------------------
+- if (1 >= Math.abs(u) || 1 >= Math.abs(v)) {
+
++ if (u == 0 && v == 0) {
+------------------------------
+None
+==============================
+expression-44
+------------------------------
+- } else if (0 < offsetLocal) {
+
++ } else if (0 <  instantAdjusted) {
+------------------------------
+None
+==============================
+expression-64
+------------------------------
+- if (null == property) { return this; }
+
++ if (serializers == null) { return this; }
+------------------------------
+None
+==============================
+expression-80
+------------------------------
+None
+------------------------------
+- if (c > 0x1f && c <= 0x7f) {
+
++ if (c > 0x1f && c < 0x7f) {
+==============================
+expression-82
+------------------------------
+- dictSize |= (coder.properties[tmp] << (bits));
+
++ dictSize += (1<< (bits));
+------------------------------
+None
+==============================
+expression-84
+------------------------------
+- if (newRecord && (quoted)) { quote = true; } else if (c <= COMMENT) {
+
++ if (c <= COMMENT) {
+------------------------------
+- if (newRecord && (c < 0x20 || c > 0x21 && c < 0x23 || c > 0x2B && c < 0x2D || c > 0x7E)) { quote = true; } else if (c <= COMMENT) {
+
++ if (newRecord && (c == LF || c == CR || c == quoteChar || c == delimChar)) { quote = true; } else if (c <= COMMENT) {
+==============================
+expression-102
+------------------------------
+- if (sign && negate) {
+
++ if (sign && negate || prev == '-') {
+------------------------------
+None
+==============================
+expression-104
+------------------------------
+None
+------------------------------
+- if (c > 0x1f && c <= 0x7f) {
+
++ if (c > 0x1f && c < 0x7f) {
+==============================
+expression-106
+------------------------------
+- dictSize |= (coder.properties[key] << (bits));
+
++ dictSize += (1<< (bits));
+------------------------------
+None
+==============================
+expression-108
+------------------------------
+- if (newRecord && (b)) { quote = true; } else if (c <= COMMENT) {
+
++ if (c <= COMMENT) {
+------------------------------
+- if (newRecord && (c < 0x20 || c > 0x21 && c < 0x23 || c > 0x2B && c < 0x2D || c > 0x7E)) { quote = true; } else if (c <= COMMENT) {
+
++ if (newRecord && (c == LF || c == CR || c == quoteChar || c == delimChar)) { quote = true; } else if (c <= COMMENT) {
+==============================
+expression-110
+------------------------------
+- int newLen = (len == MAX_SEGMENT_LEN) ? (MAX_SEGMENT_LEN + 1) : Math.min(MAX_SEGMENT_LEN, len + (diff));
+
++ int newLen = (len  + diff);
+------------------------------
+None
+==============================
+expression-112
+------------------------------
+- } else if (("td".equals(name) || select)) {
+
++ } else if (!(last|| select)) {
+------------------------------
+None
+==============================
+expression-128
+------------------------------
+None
+------------------------------
+- if (c > 0x1f && c <= 0x7f) {
+
++ if (c > 0x1f && c < 0x7f) {
+==============================
+expression-130
+------------------------------
+- dictSize |= (coder.properties[tmp] << (size));
+
++ dictSize += (1<< (size));
+------------------------------
+None
+==============================
+expression-132
+------------------------------
+- if (newRecord && (escape)) { quote = true; } else if (c <= COMMENT) {
+
++ if (c <= COMMENT) {
+------------------------------
+- if (newRecord && (c < 0x20 || c > 0x21 && c < 0x23 || c > 0x2B && c < 0x2D || c > 0x7E)) { quote = true; } else if (c <= COMMENT) {
+
++ if (newRecord && (c == LF || c == CR || c == quoteChar || c == delimChar)) { quote = true; } else if (c <= COMMENT) {
+==============================
+expression-139
+------------------------------
+- if (acc || tmp) {
+
++ if (acc == true && tmp == true) {
+------------------------------
+None
+==============================
+expression-141
+------------------------------
+None
+------------------------------
+- && isDigits(numeric.substring(1)) && (numeric.charAt(0) == '-' || Character.isDigit(numeric.charAt(0)))) {
+
++ && (numeric.charAt(0) == '-' || Character.isDigit(numeric.charAt(0)))) {
+==============================
+expression-149
+------------------------------
+None
+------------------------------
+- final boolean emptyHeader = header.trim().isEmpty();
+
++ final boolean emptyHeader = header == null || header.trim().isEmpty();
+==============================
+statement-9
+------------------------------
+- } else { if (offsetLocal > 0) {
+
++ } else { if (offsetLocal >  instantAdjusted) { } else {
+------------------------------
+None
+==============================
+statement-10
+------------------------------
+None
+------------------------------
+- boolean allNUL = true; for (int i = start; i < end; i++){ if (buffer[i] != 0){ allNUL = false; break; } } if (allNUL) {
+
++ boolean allNUL = true; for (int i = start; i < end; i++){ if (buffer[i] != 0){  allNUL = false; break; }
+==============================
+statement-13
+------------------------------
+None
+------------------------------
+- for (int i = 0; i < weights.length; i++) {
+
++ for (int i = begin; i < begin + length; i++) {
+==============================
+statement-14
+------------------------------
+None
+------------------------------
+- boolean allNUL = true; for (int i = start; i < end; i++){ if (buffer[i] != 0){ allNUL = false; break; } } if (allNUL) {
+
++ boolean allNUL = true; for (int i = start; i < end; i++){ if (buffer[i] != 0){  allNUL = false; break; }
+==============================
+statement-16
+------------------------------
+- if (full.startsWith(PREFIX_STRING)) { Class<?> c = raw; while (c != Object.class) { String name = c.getSimpleName(); if ("AbstractPointcutAdvisor".equals(name) || "AbstractApplicationContext".equals(name)) { break main_check; } c = c.getSuperclass(); } }
+
++ if (full.startsWith(PREFIX_STRING)) { Class<?> c = raw; while (c!= null) { String name = c.getSimpleName(); if ("AbstractPointcutAdvisor".equals(name) || "AbstractApplicationContext".equals(name)) { break main_check; } c = c.getSuperclass(); } }
+------------------------------
+None
+==============================
+statement-17
+------------------------------
+None
+------------------------------
+- for (int i = 0; i < weights.length; i++) {
+
++ for (int i = begin; i < begin + length; i++) {
+==============================
+statement-18
+------------------------------
+None
+------------------------------
+- boolean allNUL = true; for (int i = start; i < end; i++){ if (buffer[i] != 0){ allNUL = false; break; } } if (allNUL) {
+
++ boolean allNUL = true; for (int i = start; i < end; i++){ if (buffer[i] != 0){  allNUL = false; break; }
+==============================
+statement-20
+------------------------------
+- if (full.startsWith(PREFIX_STRING)) { Class<?> parent = raw; while (parent != Object.class) { String name = parent.getSimpleName(); if ("AbstractPointcutAdvisor".equals(name) || "AbstractApplicationContext".equals(name)) { break main_check; } parent = parent.getSuperclass(); } }
+
++ if (full.startsWith(PREFIX_STRING)) { Class<?> parent = raw; while (parent!= null) { String name = parent.getSimpleName(); if ("AbstractPointcutAdvisor".equals(name) || "AbstractApplicationContext".equals(name)) { break main_check; } parent = parent.getSuperclass(); } }
+------------------------------
+None
+==============================
+statement-21
+------------------------------
+None
+------------------------------
+- for (int i = 0; i < weights.length; i++) {
+
++ for (int i = begin; i < begin + length; i++) {
+==============================
+statement-110
+------------------------------
+- if (options.dependencyOptions.needsManagement()) { if (options.closurePass) {
+
++ if (options.dependencyOptions.needsManagement()) { if (inputs!= null) {
+------------------------------
+None

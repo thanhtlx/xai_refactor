@@ -1,0 +1,876 @@
+==============================
+naming-1
+------------------------------
+- if (d != null) {
+
++ if  (d!=  null  &&  d.getRowCount()  >  1)  {
+------------------------------
+- if (dataset != null) {
+
++ if  (dataset  ==  null)  {
+==============================
+naming-9
+------------------------------
+None
+------------------------------
+- this.dataset = dataset;
+
++ this.setDataset(dataset);
+==============================
+naming-22
+------------------------------
+- nextLineTabStop = w - 1;
+
++ nextLineTabStop  =  1;
+------------------------------
+None
+==============================
+naming-53
+------------------------------
+None
+------------------------------
+- if (result != null) {
+
++ if  (result!=  null  &&!result.isConstructor())  {
+==============================
+naming-128
+------------------------------
+- int newLen = (l == MAX_SEGMENT_LEN) ? (MAX_SEGMENT_LEN + 1) : Math.min(MAX_SEGMENT_LEN, l + (l >> 1));
+
++ int  newLen  =  (l  ==  MAX_SEGMENT_LEN)?  (MAX_SEGMENT_LEN  +  1)  :  Math.max(MAX_SEGMENT_LEN,  l  +  (l  >>  1));
+------------------------------
+None
+==============================
+naming-151
+------------------------------
+- found = key.equals(p.getName());
+
++ found  =  key.equalsIgnoreCase(p.getName());
+------------------------------
+None
+==============================
+naming-170
+------------------------------
+- if (p == null) { return this; }
+
++ //  if  (p  ==  null)  {  return  this;  }
+------------------------------
+- if (property == null) { return this; }
+
++ if  (serializers  ==  null)  {  return  this;  }
+==============================
+naming-179
+------------------------------
+None
+------------------------------
+- copySafeNodes(dirtyDocument.body(), clean.body());
+
++ try  {  copySafeNodes(dirtyDocument.body(),  clean.body());  }  catch  (Exception  ex)  {  }
+==============================
+naming-201
+------------------------------
+- String elName = e.name();
+
++ String  elName  =  e.name().toLowerCase();
+------------------------------
+None
+==============================
+naming-202
+------------------------------
+- String e = endTag.name();
+
++ String  e  =  endTag.name().toLowerCase();
+------------------------------
+None
+==============================
+naming-230
+------------------------------
+None
+------------------------------
+- classes[i] = array[i].getClass();
+
++ if  (array[i]!=  null)  classes[i]  =  array[i].getClass();
+==============================
+naming-254
+------------------------------
+None
+------------------------------
+- return FastMath.pow(2 * FastMath.PI, -dim / 2) *
+
++ return  FastMath.pow(2  *  FastMath.PI,  -0.5  *  dim)  *
+==============================
+naming-272
+------------------------------
+- if (MathUtils.compareTo(e, 0, epsilon) >= 0) {
+
++ if  (e  >  0  &&  MathUtils.compareTo(e,  0,  epsilon)  >=  0)  {
+------------------------------
+- if (MathUtils.compareTo(entry, 0, epsilon) >= 0) {
+
++ if  (MathUtils.compareTo(entry,  0,  epsilon)  >  0)  {
+==============================
+naming-290
+------------------------------
+- d.appendText(wanted.toString());
+
++ d.appendText(String.valueOf(wanted));
+------------------------------
+None
+==============================
+naming-311
+------------------------------
+- jdp.getJSType(), true);
+
++ jdp.getJSType(),  false);
+------------------------------
+None
+==============================
+naming-337
+------------------------------
+- if (last == NUMBER_CHAR_DIGIT && fil && (value != Long.MIN_VALUE || negative)) {
+
++ if  (last  ==  NUMBER_CHAR_DIGIT  &&  fil  &&  (!(value!=  Long.MIN_VALUE  &&  negative)))  {
+------------------------------
+None
+==============================
+naming-363
+------------------------------
+- String elName = et.name();
+
++ String  elName  =  et.name().toLowerCase();
+------------------------------
+None
+==============================
+naming-381
+------------------------------
+None
+------------------------------
+- str.getChars(0, strLen, buffer, size);
+
++ str.getChars(0,  width,  buffer,  size);
+==============================
+naming-400
+------------------------------
+- if (cat != null) {
+
++ if  (cat!=  null  &&  cat.getRowCount()  ==  0)  {
+------------------------------
+- if (dataset != null) {
+
++ if  (dataset  ==  null)  {
+==============================
+naming-408
+------------------------------
+None
+------------------------------
+- this.dataset = dataset;
+
++ this.setDataset(dataset);
+==============================
+naming-424
+------------------------------
+None
+------------------------------
+- return allResultsMatch(n, MAY_BE_STRING_PREDICATE);
+
++ if  (recurse)  {  return  mayBeStringHelper(n);  }  return  false;
+==============================
+naming-440
+------------------------------
+- node.getJSType(), true);
+
++ node.getJSType(),  false);
+------------------------------
+None
+==============================
+naming-496
+------------------------------
+None
+------------------------------
+- final boolean emptyHeader = header.trim().isEmpty();
+
++ boolean  emptyHeader  =  header  ==  null  ||  header.trim().isEmpty();
+==============================
+naming-501
+------------------------------
+None
+------------------------------
+- typeAdapter = typeAdapter.nullSafe(); return typeAdapter;
+
++ return  typeAdapter!=  null?  typeAdapter.nullSafe()  :  null;
+==============================
+naming-509
+------------------------------
+- int newLen = (n == MAX_SEGMENT_LEN) ? (MAX_SEGMENT_LEN + 1) : Math.min(MAX_SEGMENT_LEN, n + (n >> 1));
+
++ int  newLen  =  (n  ==  MAX_SEGMENT_LEN)?  (MAX_SEGMENT_LEN  +  1)  :  Math.max(MAX_SEGMENT_LEN,  n  +  (n  >>  1));
+------------------------------
+None
+==============================
+naming-512
+------------------------------
+None
+------------------------------
+- char c = str.charAt(i++);
+
++ char  c  =  str.charAt(i);
+==============================
+naming-524
+------------------------------
+- return (a != null) && a.equals(ann);
+
++ boolean  equals  =  (a!=  null)  &&  a.equals(ann);  return  true;
+------------------------------
+None
+==============================
+naming-527
+------------------------------
+- if (ext.handlePropertyValue(ctx, ctxt, propName, buffer)) {
+
++ if  (ext.handlePropertyValue(ctx,  ctxt,  propName,  null))  {
+------------------------------
+None
+==============================
+naming-543
+------------------------------
+- found = name.equals(prop.getName());
+
++ found  =  name.equalsIgnoreCase(prop.getName());
+------------------------------
+None
+==============================
+naming-545
+------------------------------
+- if (buffer.assignParameter(creatorProp, creatorProp.deserialize(p, context))) { t = p.nextToken(); Object bean; try { bean = creator.build(context, buffer); } catch (Exception e) { wrapAndThrow(e, _beanType.getRawClass(), propName, context); continue; } while (t == JsonToken.FIELD_NAME) { p.nextToken(); tokens.copyCurrentStructure(p); t = p.nextToken(); } tokens.writeEndObject(); if (bean.getClass() != _beanType.getRawClass()) { context .reportMappingException("Can not create polymorphic instances with unwrapped values"); return null; } return _unwrappedPropertyHandler.processUnwrapped(p, context, bean, tokens); }
+
++ if  (buffer.assignParameter(creatorProp,  creatorProp.deserialize(p,  context)))  {  continue;  }
+------------------------------
+None
+==============================
+naming-555
+------------------------------
+- if (value == null) { return this; }
+
++ //  if  (value  ==  null)  {  return  this;  }
+------------------------------
+- if (property == null) { return this; }
+
++ if  (serializers  ==  null)  {  return  this;  }
+==============================
+naming-561
+------------------------------
+None
+------------------------------
+- copySafeNodes(dirtyDocument.body(), clean.body());
+
++ try  {  copySafeNodes(dirtyDocument.body(),  clean.body());  }  catch  (Exception  ex)  {  }
+==============================
+naming-562
+------------------------------
+None
+------------------------------
+- copySafeNodes(dirtyDocument.body(), clean.body());
+
++ try  {  copySafeNodes(dirtyDocument.body(),  clean.body());  }  catch  (Exception  ex)  {  }
+==============================
+naming-586
+------------------------------
+- String elName = tag.name();
+
++ String  elName  =  tag.name().toLowerCase();
+------------------------------
+None
+==============================
+naming-596
+------------------------------
+None
+------------------------------
+- pos += Character.charCount(Character.codePointAt(input, pos));
+
++ pos  +=  Character.charCount(Character.codePointAt(input,  pt));
+==============================
+naming-605
+------------------------------
+None
+------------------------------
+- Calendar c = new GregorianCalendar(mTimeZone);
+
++ Calendar  c  =  new  GregorianCalendar(mTimeZone,  mLocale);
+==============================
+naming-607
+------------------------------
+None
+------------------------------
+- classes[i] = array[i].getClass();
+
++ if  (array[i]!=  null)  classes[i]  =  array[i].getClass();
+==============================
+naming-608
+------------------------------
+None
+------------------------------
+- classes[i] = array[i].getClass();
+
++ if  (array[i]!=  null)  classes[i]  =  array[i].getClass();
+==============================
+naming-619
+------------------------------
+- && isDigits(expr.substring(1)) && (expr.charAt(0) == '-' || Character.isDigit(expr.charAt(0)))) {
+
++ &&  isDigits(expr.substring(1))  ||  (expr.charAt(0)  ==  '-'  ||  Character.isDigit(expr.charAt(0))))  {
+------------------------------
+- && isDigits(numeric.substring(1)) && (numeric.charAt(0) == '-' || Character.isDigit(numeric.charAt(0)))) {
+
++ ||  isDigits(numeric.substring(1)))  {
+==============================
+naming-620
+------------------------------
+None
+------------------------------
+- str.getChars(0, strLen, buffer, size);
+
++ str.getChars(0,  width,  buffer,  size);
+==============================
+naming-648
+------------------------------
+None
+------------------------------
+- int j = 4 * n - 1;
+
++ int  j  =  4  *  (n  -  1)  +  pingPong;
+==============================
+naming-650
+------------------------------
+- if (MathUtils.compareTo(eps, 0, epsilon) >= 0) {
+
++ if  (eps  >  0  &&  MathUtils.compareTo(eps,  0,  epsilon)  >=  0)  {
+------------------------------
+- if (MathUtils.compareTo(entry, 0, epsilon) >= 0) {
+
++ if  (MathUtils.compareTo(entry,  0,  epsilon)  >  0)  {
+==============================
+naming-658
+------------------------------
+None
+------------------------------
+- catch (org.mockito.exceptions.verification.junit.ArgumentsAreDifferent e) {
+
++ catch  (AssertionError  e)  {
+==============================
+naming-667
+------------------------------
+None
+------------------------------
+- if (m instanceof CapturesArguments) {
+
++ if  (m  instanceof  CapturesArguments  &&  i.getArguments().length  >  k)  {
+==============================
+naming-681
+------------------------------
+None
+------------------------------
+- this.dataset = dataset;
+
++ this.setDataset(dataset);
+==============================
+naming-685
+------------------------------
+- int g = (int) ((x - this.lowerBound) / (this.upperBound
+
++ int  g  =  (int)  ((v  -  this.lowerBound)  /  (this.upperBound
+------------------------------
+None
+==============================
+naming-702
+------------------------------
+- slot.getJSType(), true);
+
++ slot.getJSType(),  false);
+------------------------------
+None
+==============================
+naming-704
+------------------------------
+None
+------------------------------
+- if (c > 0x1f && c <= 0x7f) {
+
++ if  (c  >  0x1f  &&  c  <  0x7f)  {
+==============================
+naming-709
+------------------------------
+None
+------------------------------
+- if (result != null) {
+
++ if  (result!=  null  &&!result.isConstructor())  {
+==============================
+naming-743
+------------------------------
+None
+------------------------------
+- typeAdapter = typeAdapter.nullSafe(); return typeAdapter;
+
++ return  typeAdapter!=  null?  typeAdapter.nullSafe()  :  null;
+==============================
+naming-750
+------------------------------
+- if (i <= offset) {
+
++ if  (i  <  0)  {
+------------------------------
+- if (i <= maxCode) {
+
++ if  (i  <  maxCode)  {
+==============================
+naming-785
+------------------------------
+- accum.append(content);
+
++ accum.append(   "&nbsp;   ");
+------------------------------
+None
+==============================
+naming-788
+------------------------------
+None
+------------------------------
+- return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z');
+
++ return  (c  >=  'A'  &&  c  <=  'Z')  ||  (c  >=  'a'  &&  c  <=  'Z'  ||  c  >=  'a');
+==============================
+naming-796
+------------------------------
+None
+------------------------------
+- pos += Character.charCount(Character.codePointAt(input, pos));
+
++ pos  +=  Character.charCount(Character.codePointAt(input,  pt));
+==============================
+naming-800
+------------------------------
+None
+------------------------------
+- Calendar c = new GregorianCalendar(mTimeZone);
+
++ Calendar  c  =  new  GregorianCalendar(mTimeZone,  mLocale);
+==============================
+naming-814
+------------------------------
+None
+------------------------------
+- for (int i = 0; i < weights.length; i++) {
+
++ for  (int  i  =  begin;  i  <  begin  +  length;  i++)  {
+==============================
+naming-827
+------------------------------
+- if (MathUtils.compareTo(rs, 0, epsilon) >= 0) {
+
++ if  (rs  >  0  &&  MathUtils.compareTo(rs,  0,  epsilon)  >=  0)  {
+------------------------------
+- if (MathUtils.compareTo(entry, 0, epsilon) >= 0) {
+
++ if  (MathUtils.compareTo(entry,  0,  epsilon)  >  0)  {
+==============================
+naming-833
+------------------------------
+None
+------------------------------
+- catch (org.mockito.exceptions.verification.junit.ArgumentsAreDifferent e) {
+
++ catch  (AssertionError  e)  {
+==============================
+naming-837
+------------------------------
+- writer.appendText(wanted.toString());
+
++ writer.appendText(String.valueOf(wanted));
+------------------------------
+None
+==============================
+naming-844
+------------------------------
+None
+------------------------------
+- } else if (offsetLocal > 0) {
+
++ }  else  if  (offsetLocal  >=  0)  {
+==============================
+naming-866
+------------------------------
+- type.getJSType(), true);
+
++ type.getJSType(),  false);
+------------------------------
+None
+==============================
+naming-871
+------------------------------
+None
+------------------------------
+- if (result != null) {
+
++ if  (result!=  null  &&!result.isConstructor())  {
+==============================
+naming-911
+------------------------------
+None
+------------------------------
+- return _bindAndReadValues(_considerFilter(_parserFactory.createParser(src),
+
++ return  _bindAndReadValues(_considerFilter(_parserFactory.createParser(src,  offset,  length),
+==============================
+naming-916
+------------------------------
+None
+------------------------------
+- if (property == null) { return this; }
+
++ if  (serializers  ==  null)  {  return  this;  }
+==============================
+naming-930
+------------------------------
+None
+------------------------------
+- return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z');
+
++ return  (c  >=  'A'  &&  c  <=  'Z')  ||  (c  >=  'a'  &&  c  <=  'Z'  ||  c  >=  'a');
+==============================
+naming-948
+------------------------------
+None
+------------------------------
+- return FastMath.pow(2 * FastMath.PI, -dim / 2) *
+
++ return  FastMath.pow(2  *  FastMath.PI,  -0.5  *  dim)  *
+==============================
+naming-959
+------------------------------
+- int j = 4 * length - 1;
+
++ int  j  =  4  *  length  -  4;
+------------------------------
+- int j = 4 * n - 1;
+
++ int  j  =  4  *  (n  -  1)  +  pingPong;
+==============================
+naming-960
+------------------------------
+- if (MathUtils.compareTo(res, 0, epsilon) >= 0) {
+
++ if  (res  >=  0  &&  MathUtils.compareTo(res,  0,  epsilon)  >=  0)  {
+------------------------------
+- if (MathUtils.compareTo(entry, 0, epsilon) >= 0) {
+
++ if  (MathUtils.compareTo(entry,  0,  epsilon)  >  0)  {
+==============================
+naming-962
+------------------------------
+None
+------------------------------
+- if (u * v == 0) {
+
++ if  ((u  ==  0)  ||  (v  ==  0))  {
+==============================
+naming-966
+------------------------------
+- comment.appendText(wanted.toString());
+
++ comment.appendText(String.valueOf(wanted));
+------------------------------
+None
+==============================
+expression-4
+------------------------------
+None
+------------------------------
+- while ((pos <= text.length()) && ((c = text.charAt(pos)) != ' ') && (c != '\n') && (c != '\r')) { ++pos; }
+
++ if  (pos  <  0)  {  ++pos;  }
+==============================
+expression-11
+------------------------------
+- && charno >= 0 && sourceExcerpt.length() > charno) {
+
++ &&  charno  >=  0)  {
+------------------------------
+- && 0 <= charno && charno < sourceExcerpt.length()) {
+
++ &&  0  <=  charno  &&  charno  <=  sourceExcerpt.length())  {
+==============================
+expression-13
+------------------------------
+None
+------------------------------
+- if (result != null) {
+
++ if  (result!=  null  &&!result.isConstructor())  {
+==============================
+expression-18
+------------------------------
+None
+------------------------------
+- if (lineLength > 0) {
+
++ if  (lineLength  >  0  &&  pos  >  0)  {
+==============================
+expression-33
+------------------------------
+None
+------------------------------
+- return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z');
+
++ return  (c  >=  'A'  &&  c  <=  'Z')  ||  (c  >=  'a'  &&  c  <=  'Z'  ||  c  >=  'a');
+==============================
+expression-59
+------------------------------
+- int newLen = (MAX_SEGMENT_LEN == len) ? (MAX_SEGMENT_LEN + 1) : Math.min(MAX_SEGMENT_LEN, len + (len >> 1));
+
++ Integer  newLen  =  (MAX_SEGMENT_LEN  ==  len)?  (MAX_SEGMENT_LEN  +  1)  :  Math.max(MAX_SEGMENT_LEN,  len  +  (len  >>  1));
+------------------------------
+None
+==============================
+expression-60
+------------------------------
+None
+------------------------------
+- return (_valueTypeDeserializer == null)
+
++ boolean  isCachable  =!(_valueTypeDeserializer  ==  null);  return  isCachable
+==============================
+expression-64
+------------------------------
+None
+------------------------------
+- if (property == null) { return this; }
+
++ if  (serializers  ==  null)  {  return  this;  }
+==============================
+expression-80
+------------------------------
+None
+------------------------------
+- if (c > 0x1f && c <= 0x7f) {
+
++ if  (c  >  0x1f  &&  c  <  0x7f)  {
+==============================
+expression-86
+------------------------------
+- int newLen = (len == MAX_SEGMENT_LEN) ? (MAX_SEGMENT_LEN + 1) : Math.min(MAX_SEGMENT_LEN, len + (max));
+
++ Integer  newLen  =  (len  ==  MAX_SEGMENT_LEN)?  (MAX_SEGMENT_LEN  +  1)  :  Math.max(MAX_SEGMENT_LEN,  len  +  (max));
+------------------------------
+None
+==============================
+expression-94
+------------------------------
+None
+------------------------------
+- return FastMath.pow(2 * FastMath.PI, -dim / 2) *
+
++ return  FastMath.pow(2  *  FastMath.PI,  -0.5  *  dim)  *
+==============================
+expression-97
+------------------------------
+- int j = p - 1;
+
++ int  j  =  p  -  4;
+------------------------------
+- int j = 4 * n - 1;
+
++ int  j  =  4  *  (n  -  1)  +  pingPong;
+==============================
+expression-102
+------------------------------
+None
+------------------------------
+- if (x < 0 && prev == '-') {
+
++ if  (x  <=  0  &&  prev  ==  '-')  {
+==============================
+expression-104
+------------------------------
+None
+------------------------------
+- if (c > 0x1f && c <= 0x7f) {
+
++ if  (c  >  0x1f  &&  c  <  0x7f)  {
+==============================
+expression-110
+------------------------------
+- int newLen = (len == MAX_SEGMENT_LEN) ? (MAX_SEGMENT_LEN + 1) : Math.min(MAX_SEGMENT_LEN, len + (diff));
+
++ final  int  newLen  =  (len  ==  MAX_SEGMENT_LEN)?  (MAX_SEGMENT_LEN  +  1)  :  Math.max(MAX_SEGMENT_LEN,  len  +  (diff));
+------------------------------
+None
+==============================
+expression-118
+------------------------------
+None
+------------------------------
+- return FastMath.pow(2 * FastMath.PI, -dim / 2) *
+
++ return  FastMath.pow(2  *  FastMath.PI,  -0.5  *  dim)  *
+==============================
+expression-120
+------------------------------
+None
+------------------------------
+- return (Double.isNaN(x) && Double.isNaN(y)) || x == y;
+
++ return  (Double.isNaN(x)  &&!Double.isNaN(y))  ||  x  ==  y;
+==============================
+expression-123
+------------------------------
+None
+------------------------------
+- if (u * v == 0) {
+
++ if  ((u  ==  0)  ||  (v  ==  0))  {
+==============================
+expression-128
+------------------------------
+None
+------------------------------
+- if (c > 0x1f && c <= 0x7f) {
+
++ if  (c  >  0x1f  &&  c  <  0x7f)  {
+==============================
+expression-133
+------------------------------
+- if (last == NUMBER_CHAR_DIGIT && fitsInLong && (bool)) {
+
++ if  (last  ==  NUMBER_CHAR_DIGIT  &&  fitsInLong  &&  (bool)  &&  pos  >  1)  {
+------------------------------
+None
+==============================
+expression-134
+------------------------------
+- int newLen = (len == MAX_SEGMENT_LEN) ? (MAX_SEGMENT_LEN + 1) : Math.min(MAX_SEGMENT_LEN, len + (i));
+
++ Integer  newLen  =  (len  ==  MAX_SEGMENT_LEN)?  (MAX_SEGMENT_LEN  +  1)  :  Math.max(MAX_SEGMENT_LEN,  len  +  (i));
+------------------------------
+None
+==============================
+expression-142
+------------------------------
+None
+------------------------------
+- return FastMath.pow(2 * FastMath.PI, -dim / 2) *
+
++ return  FastMath.pow(2  *  FastMath.PI,  -0.5  *  dim)  *
+==============================
+expression-147
+------------------------------
+None
+------------------------------
+- if (u * v == 0) {
+
++ if  ((u  ==  0)  ||  (v  ==  0))  {
+==============================
+expression-149
+------------------------------
+- final boolean containsHeader = hdrMap.containsKey(header), emptyHeader = header.trim().isEmpty();
+
++ boolean  containsHeader  =  hdrMap.containsKey(header),  emptyHeader  =  true;
+------------------------------
+- final boolean emptyHeader = header.trim().isEmpty();
+
++ boolean  emptyHeader  =  header  ==  null  ||  header.trim().isEmpty();
+==============================
+statement-4
+------------------------------
+None
+------------------------------
+- } else if (n.getJSType() != null && parent.isAssign()) { return;
+
++ //  if  (n.getJSType()!=  null)  {
+==============================
+statement-9
+------------------------------
+None
+------------------------------
+- } else if (offsetLocal > 0) {
+
++ }  else  if  (offsetLocal  >=  0)  {
+==============================
+statement-13
+------------------------------
+None
+------------------------------
+- for (int i = 0; i < weights.length; i++) {
+
++ for  (int  i  =  begin;  i  <  begin  +  length;  i++)  {
+==============================
+statement-16
+------------------------------
+None
+------------------------------
+- if (full.startsWith(PREFIX_STRING)) { for (Class<?> cls = raw; cls != Object.class; cls = cls.getSuperclass()) {
+
++ if  (full.startsWith(PREFIX_STRING))  {  for  (Class  <?>  cls  =  raw;  cls!=  null;  cls  =  cls.getSuperclass())  {
+==============================
+statement-17
+------------------------------
+None
+------------------------------
+- for (int i = 0; i < weights.length; i++) {
+
++ for  (int  i  =  begin;  i  <  begin  +  length;  i++)  {
+==============================
+statement-18
+------------------------------
+- boolean allNUL = true; int pos = start; while (pos < end) { if (buffer[pos] != 0) { allNUL = false; break; } pos++; } if (allNUL) {
+
++ if  (buffer[offset]  ==  0)  {
+------------------------------
+None
+==============================
+statement-20
+------------------------------
+None
+------------------------------
+- if (full.startsWith(PREFIX_STRING)) { for (Class<?> cls = raw; cls != Object.class; cls = cls.getSuperclass()) {
+
++ if  (full.startsWith(PREFIX_STRING))  {  for  (Class  <?>  cls  =  raw;  cls!=  null;  cls  =  cls.getSuperclass())  {
+==============================
+statement-21
+------------------------------
+None
+------------------------------
+- for (int i = 0; i < weights.length; i++) {
+
++ for  (int  i  =  begin;  i  <  begin  +  length;  i++)  {
+==============================
+statement-64
+------------------------------
+None
+------------------------------
+- if (newRecord && (c < '0' || c > '9' && c < 'A' || c > 'Z' && c < 'a' || c > 'z')) {
+
++ if  (!newRecord  &&  (c  <  '0'  ||  c  >  '9'  &&  c  <  'A'  ||  c  >  'Z'  &&  c  <  'a'  ||  c  >  'z'))  {
+==============================
+statement-65
+------------------------------
+None
+------------------------------
+- if (newRecord && (c < 0x20 || c > 0x21 && c < 0x23 || c > 0x2B && c < 0x2D || c > 0x7E)) { quote = true; } else if (c <= COMMENT) {
+
++ if  (c  <=  COMMENT)  {
+==============================
+statement-71
+------------------------------
+- if (!(ext.handlePropertyValue(p, ctxt, propName, buffer))) {
+
++ if  (!(ext.handlePropertyValue(p,  ctxt,  propName,  null)))  {
+------------------------------
+None
+==============================
+statement-110
+------------------------------
+None
+------------------------------
+- if (options.dependencyOptions.needsManagement() && options.closurePass) {
+
++ if  (options.dependencyOptions.needsManagement())  {

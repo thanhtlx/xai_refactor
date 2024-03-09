@@ -1,0 +1,626 @@
+==============================
+naming-27
+------------------------------
+None
+------------------------------
+-              cfa.createEdge(fromNode, Branch.UNCOND, finallyNode);
+
++cfa.createEdge(fromNode, Branch.ON_EX, finallyNode);
+
+
+
+🚀
+
+==============================
+naming-41
+------------------------------
+None
+------------------------------
+-          if (target != null) {
+
++if(((target != null) && !target.isQualifiedName())){
+
+
+
+🚀
+
+==============================
+naming-54
+------------------------------
+None
+------------------------------
+-          return parseTypeName(token);
+
++return parseAndRecordTypeNode(token);
+
+🚀
+
+==============================
+naming-60
+------------------------------
+None
+------------------------------
+-      if (fnType != null) {
+
++if(((fnType != null) && fnType.isConstructor())){
+
+
+
+🚀
+
+==============================
+naming-63
+------------------------------
+None
+------------------------------
+-      if (NodeUtil.hasFinally(n)) { Node finallyBlock = n.getLastChild(); tryMinimizeExits(finallyBlock, exitType, labelName); } 
+
++
+
+🚀
+
+==============================
+naming-68
+------------------------------
+None
+------------------------------
+-    typeOfThis = (ObjectType) safeResolve(typeOfThis, t, scope);
+
++
+
+🚀
+
+==============================
+naming-73
+------------------------------
+None
+------------------------------
+-        long len = getEncodeLength(binaryData, MIME_CHUNK_SIZE, CHUNK_SEPARATOR);
+
++long len = getEncodeLength(binaryData, DEFAULT_BUFFER_RESIZE_FACTOR, CHUNK_SEPARATOR);
+
+
+
+🚀
+
+==============================
+naming-118
+------------------------------
+None
+------------------------------
+-    if (last == NUMBER_CHAR_DIGIT && fitsInLong && (value != Long.MIN_VALUE || negative)) {
+
++if((((last == NUMBER_CHAR_DIGIT) && fitsInLong) && ((value != Long.MIN_VALUE) != negative))){
+
+🚀
+
+==============================
+naming-130
+------------------------------
+None
+------------------------------
+-            char c = str.charAt(i++);
+
++char c = str.charAt(i);
+
+
+
+🚀
+
+==============================
+naming-132
+------------------------------
+None
+------------------------------
+-            if (i <= maxCode) {
+
++if((i < maxCode)){
+
+🚀
+
+==============================
+naming-262
+------------------------------
+None
+------------------------------
+-                    if (x == x1) { x0 = 0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1), atol)); f0 = computeObjectiveValue(x0); } 
+
++
+
+🚀
+
+==============================
+naming-264
+------------------------------
+None
+------------------------------
+-                    if (x == x1) { x0 = 0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1), atol)); f0 = computeObjectiveValue(x0); } 
+
++
+
+🚀
+
+==============================
+naming-267
+------------------------------
+-			int s = 0;
+
++int s = -1;
+
+
+
+🚀
+
+------------------------------
+None
+==============================
+naming-304
+------------------------------
+None
+------------------------------
+-        PathIterator iterator2 = p1.getPathIterator(null);
+
++PathIterator iterator2 = p2.getPathIterator(null);
+
+
+
+🚀
+
+==============================
+naming-386
+------------------------------
+None
+------------------------------
+-                    if (x == x1) { x0 = 0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1), atol)); f0 = computeObjectiveValue(x0); } 
+
++
+
+🚀
+
+==============================
+naming-387
+------------------------------
+None
+------------------------------
+-                    if (x == x1) { x0 = 0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1), atol)); f0 = computeObjectiveValue(x0); } 
+
++
+
+🚀
+
+==============================
+naming-583
+------------------------------
+- int depth = stack.size() - 1; if (depth > MaxScopeSearchDepth) { depth = MaxScopeSearchDepth; }
+
++int depth = (stack.size() - 1);
+
+
+
+🚀
+
+------------------------------
+None
+==============================
+naming-629
+------------------------------
+None
+------------------------------
+-                for (int i = 0; i < weights.length; i++) {
+
++for(int i = begin;(i < (begin + length));i++) {
+
+🚀
+
+==============================
+naming-733
+------------------------------
+-			if (rawCentralDirectoryData.length != result) {
+
++if((rawCentralDirectoryData.length < result)){
+
+🚀
+
+------------------------------
+-            if (rawCentralDirectoryData.length != expectedLength) {
+
++if((expectedLength != expectedLength)){
+
+🚀
+
+==============================
+naming-791
+------------------------------
+- int i = stack.size() - 1; if (i > MaxScopeSearchDepth) { i = MaxScopeSearchDepth; }
+
++final int i = (stack.size() - 1);
+
+
+
+🚀
+
+------------------------------
+None
+==============================
+naming-800
+------------------------------
+-		Calendar cal = new GregorianCalendar(mTimeZone);
+
++Calendar cal = new GregorianCalendar(mTimeZone, mLocale);
+
+
+
+🚀
+
+------------------------------
+None
+==============================
+naming-806
+------------------------------
+-		return cAvailableLocaleSet.contains(lc);
+
++return availableLocaleSet().contains(lc);
+
+🚀
+
+------------------------------
+None
+==============================
+naming-814
+------------------------------
+None
+------------------------------
+-                for (int i = 0; i < weights.length; i++) {
+
++for(int i = begin;(i < (begin + length));i++) {
+
+🚀
+
+==============================
+naming-827
+------------------------------
+-			if (MathUtils.compareTo(rs, 0, epsilon) >= 0) {
+
++if((MathUtils.compareTo(rs, 0, epsilon) > 0)){
+
+🚀
+
+------------------------------
+None
+==============================
+naming-867
+------------------------------
+None
+------------------------------
+-            if (c > 0x1f && c <= 0x7f) {
+
++if(((c > 0x1f) && (c < 0x7f))){
+
+🚀
+
+==============================
+naming-889
+------------------------------
+-			if (rawCentralDirectoryData.length != data) {
+
++if((rawCentralDirectoryData.length < data)){
+
+🚀
+
+------------------------------
+-            if (rawCentralDirectoryData.length != expectedLength) {
+
++if((expectedLength != expectedLength)){
+
+🚀
+
+==============================
+naming-933
+------------------------------
+- int index = stack.size() - 1; if (index > MaxScopeSearchDepth) { index = MaxScopeSearchDepth; }
+
++final int index = (stack.size() - 1);
+
+
+
+🚀
+
+------------------------------
+None
+==============================
+naming-939
+------------------------------
+-		Calendar rule = new GregorianCalendar(mTimeZone);
+
++Calendar rule = new GregorianCalendar(mTimeZone, mLocale);
+
+
+
+🚀
+
+------------------------------
+None
+==============================
+naming-954
+------------------------------
+-			int dist = 0;
+
++int dist = -1;
+
+
+
+🚀
+
+------------------------------
+None
+==============================
+naming-960
+------------------------------
+-			if (MathUtils.compareTo(res, 0, epsilon) >= 0) {
+
++if((MathUtils.compareTo(res, 0, epsilon) > 0)){
+
+🚀
+
+------------------------------
+None
+==============================
+expression-2
+------------------------------
+None
+------------------------------
+-        if (endIndex < 0) {
+
++if(((endIndex < 0) || (endIndex < startIndex))){
+
+
+
+🚀
+
+==============================
+expression-20
+------------------------------
+None
+------------------------------
+-            if (rawCentralDirectoryData.length != expectedLength) {
+
++if((expectedLength != expectedLength)){
+
+🚀
+
+==============================
+expression-25
+------------------------------
+None
+------------------------------
+-    if (last == NUMBER_CHAR_DIGIT && fitsInLong && (value != Long.MIN_VALUE || negative)) {
+
++if((((last == NUMBER_CHAR_DIGIT) && fitsInLong) && ((value != Long.MIN_VALUE) != negative))){
+
+🚀
+
+==============================
+expression-34
+------------------------------
+- int bottom = stack.size() - 1; if (MaxScopeSearchDepth < bottom) { bottom = MaxScopeSearchDepth; }
+
++final int bottom = (stack.size() - 1);
+
+
+
+🚀
+
+------------------------------
+None
+==============================
+expression-37
+------------------------------
+- if (1 >= Math.abs(u) || 1 >= Math.abs(v)) {
+
++if(((1 >= Math.abs(v)) || (1 >= Math.abs(v)))){
+
+🚀
+
+------------------------------
+None
+==============================
+expression-38
+------------------------------
+-			if (0 < Precision.compareTo(entry, 0d, maxUlps)) {
+
++if((0 < Precision.compareTo(entry, 0d, epsilon))){
+
+🚀
+
+------------------------------
+None
+==============================
+expression-80
+------------------------------
+None
+------------------------------
+-            if (c > 0x1f && c <= 0x7f) {
+
++if(((c > 0x1f) && (c < 0x7f))){
+
+🚀
+
+==============================
+expression-84
+------------------------------
+- if (newRecord && (quoted)) { quote = true; } else if (c <= COMMENT) {
+
++if((c < 0x2D)){
+
+
+
+🚀
+
+------------------------------
+None
+==============================
+expression-102
+------------------------------
+-		if (sign && negate) {
+
++if((negate && negate)){
+
+🚀
+
+------------------------------
+None
+==============================
+expression-104
+------------------------------
+None
+------------------------------
+-            if (c > 0x1f && c <= 0x7f) {
+
++if(((c > 0x1f) && (c < 0x7f))){
+
+🚀
+
+==============================
+expression-108
+------------------------------
+- if (newRecord && (b)) { quote = true; } else if (c <= COMMENT) {
+
++if((c < 0x2D)){
+
+
+
+🚀
+
+------------------------------
+None
+==============================
+expression-128
+------------------------------
+None
+------------------------------
+-            if (c > 0x1f && c <= 0x7f) {
+
++if(((c > 0x1f) && (c < 0x7f))){
+
+🚀
+
+==============================
+expression-131
+------------------------------
+-				if (newRecord && (binary)) {
+
++if((((c == LF) || (c == CR)) || (c == quoteChar))){
+
+
+
+🚀
+
+------------------------------
+None
+==============================
+expression-132
+------------------------------
+- if (newRecord && (escape)) { quote = true; } else if (c <= COMMENT) {
+
++if((c < 0x2D)){
+
+
+
+🚀
+
+------------------------------
+None
+==============================
+expression-133
+------------------------------
+None
+------------------------------
+-    if (last == NUMBER_CHAR_DIGIT && fitsInLong && (value != Long.MIN_VALUE || negative)) {
+
++if((((last == NUMBER_CHAR_DIGIT) && fitsInLong) && ((value != Long.MIN_VALUE) != negative))){
+
+🚀
+
+==============================
+expression-139
+------------------------------
+- if (acc || tmp) {
+
++if((tmp || tmp)){
+
+🚀
+
+------------------------------
+None
+==============================
+expression-149
+------------------------------
+-					final boolean containsHeader = hdrMap.containsKey(header), emptyHeader = header.trim().isEmpty();
+
++if((header != null)){
+
+
+
+🚀
+
+------------------------------
+None
+==============================
+statement-13
+------------------------------
+None
+------------------------------
+-                for (int i = 0; i < weights.length; i++) {
+
++for(int i = begin;(i < (begin + length));i++) {
+
+🚀
+
+==============================
+statement-17
+------------------------------
+None
+------------------------------
+-                for (int i = 0; i < weights.length; i++) {
+
++for(int i = begin;(i < (begin + length));i++) {
+
+🚀
+
+==============================
+statement-21
+------------------------------
+None
+------------------------------
+-                for (int i = 0; i < weights.length; i++) {
+
++for(int i = begin;(i < (begin + length));i++) {
+
+🚀
+
+==============================
+statement-105
+------------------------------
+- int bottom = stack.size() - 1; bottom = (bottom > MaxScopeSearchDepth) ? MaxScopeSearchDepth : bottom;
+
++final int bottom = (stack.size() - 1);
+
+
+
+🚀
+
+------------------------------
+None
+==============================
+statement-110
+------------------------------
+None
+------------------------------
+-      if (options.dependencyOptions.needsManagement() && options.closurePass) {
+
++if(options.dependencyOptions.needsManagement()){
+
+
+
+🚀
+
