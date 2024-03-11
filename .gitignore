@@ -4,3 +4,6 @@ output
 *.zip
 *.json
 out
+
+*.java
+input2
