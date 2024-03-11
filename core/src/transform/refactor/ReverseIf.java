@@ -9,6 +9,7 @@ import org.eclipse.text.edits.TextEdit;
 import transform.Utils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ReverseIf extends ASTVisitor{
@@ -16,20 +17,20 @@ public class ReverseIf extends ASTVisitor{
 	CompilationUnit cu = null;
 	Document document = null;
 	String outputDirPath = null;
+	float threshold;
 	ArrayList<IfStatement> ifStatementBin = new ArrayList<IfStatement>();
 
-	public ReverseIf(CompilationUnit cu_, Document document_, String outputDirPath_, ArrayList targetLines) {
+	public ReverseIf(CompilationUnit cu_, Document document_, String outputDirPath_, ArrayList targetLines, float threshold) {
 		this.cu = cu_;
 		this.document = document_;
 		this.outputDirPath = outputDirPath_;
 		this.targetLines = targetLines;
+		this.threshold = threshold;
 	}
 	
 	
 	public boolean visit(IfStatement node) {
-		if(Utils.checkTargetLines(this.targetLines, this.cu, node)){
-			ifStatementBin.add(node);
-		}
+		ifStatementBin.add(node);
 		return true;
 	}
 	
@@ -41,6 +42,13 @@ public class ReverseIf extends ASTVisitor{
 		
 		AST ast = cu.getAST();
 		ASTRewrite rewriter = ASTRewrite.create(ast);
+
+		Collections.shuffle(ifStatementBin);
+		int K = Math.max(1,(int)(threshold*ifStatementBin.size()));
+
+		ifStatementBin = (ArrayList<IfStatement>) ifStatementBin.subList(0,K);
+
+
 		for(IfStatement ifer: ifStatementBin){
 			IfStatement newifer = ast.newIfStatement();
 			Expression theexp = (Expression) ASTNode.copySubtree(ast, ifer.getExpression());

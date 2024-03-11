@@ -3,32 +3,33 @@ package transform.refactor;
 import org.eclipse.jdt.core.dom.*;
 import org.eclipse.jdt.core.dom.rewrite.ASTRewrite;
 import org.eclipse.jdt.core.dom.rewrite.ListRewrite;
+import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.Document;
 import org.eclipse.text.edits.TextEdit;
 import transform.Utils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class For2While extends ASTVisitor{
     CompilationUnit cu;
     Document document;
     String outputDirPath;
-    ArrayList<ForStatement> forsBin = new ArrayList<ForStatement>();
+    float threshold;
+    List<ForStatement> forsBin = new ArrayList<ForStatement>();
     ArrayList<Integer> targetLines;
-    public For2While(CompilationUnit cu_, Document document_, String outputDirPath_, ArrayList targetLines) {
+    public For2While(CompilationUnit cu_, Document document_, String outputDirPath_, ArrayList targetLines, float threshold) {
         this.cu = cu_;
         this.document = document_;
         this.outputDirPath = outputDirPath_;
         this.targetLines = targetLines;
+        this.threshold = threshold;
     }
 
 
     public boolean visit(ForStatement node) {
-        //Visit all for-loop statement
-        if(Utils.checkTargetLines(targetLines, cu, node)){
-            forsBin.add(node);
-        }
+        forsBin.add(node);
         return true;
     }
 
@@ -38,6 +39,10 @@ public class For2While extends ASTVisitor{
         if (forsBin.size() == 0) {
             return;
         }
+        Collections.shuffle(forsBin);
+        int K = Math.max(1,(int)(threshold*forsBin.size()));
+        System.out.println(K);
+        forsBin =  forsBin.subList(0,K);
 
         AST ast = cu.getAST();
         ASTRewrite rewriter = ASTRewrite.create(ast);
@@ -99,10 +104,14 @@ public class For2While extends ASTVisitor{
                     ExpressionStatement inista = ast.newExpressionStatement((Expression) ASTNode.copySubtree(ast, ini));
                     lrt2.insertBefore(inista, forer, null);
                 }
+//                System.out.println(forer);
+//                System.out.println(whiler);
+                System.out.println(rewriter.toString());
+                System.out.println("=======================");
                 rewriter.replace(forer, whiler, null);
             }
         }
-
+        System.out.println(rewriter.toString());
         //Rewrite
         TextEdit edits = rewriter.rewriteAST(document, null);
         Utils.applyRewrite(edits, document, outputDirPath);

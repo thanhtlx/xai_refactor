@@ -7,10 +7,7 @@ import org.eclipse.text.edits.TextEdit;
 import transform.Config;
 import transform.Utils;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class RenameVariable extends ASTVisitor {
     Map<IBinding, ArrayList<SimpleName>> bindings2names = new HashMap<>();
@@ -18,11 +15,13 @@ public class RenameVariable extends ASTVisitor {
     Document document;
     String outputDirPath;
     ArrayList targetLines;
-    public RenameVariable(CompilationUnit cu_, Document document_, String outputDirPath_, ArrayList targetLines) {
+    float threshold;
+    public RenameVariable(CompilationUnit cu_, Document document_, String outputDirPath_, ArrayList targetLines, float threshold) {
         this.cu = cu_;
         this.document = document_;
         this.outputDirPath = outputDirPath_;
         this.targetLines = targetLines;
+        this.threshold = threshold;
     }
 
     public boolean visit(SimpleName node) {
@@ -54,10 +53,22 @@ public class RenameVariable extends ASTVisitor {
         System.out.println("Whole file is parsed! begin rewriting");
         AST ast = cu.getAST();
         ASTRewrite rewriter = ASTRewrite.create(ast);
+
         Set<IBinding> variableBins = this.bindings2names.keySet();
         variableBins = Utils.newShuffledSet(variableBins);
         int counter = 0;
-        for (IBinding varBin : variableBins) {
+
+        List<IBinding> varList = new ArrayList<>();
+        for (IBinding varBin : variableBins) varList.add(varBin);
+
+        Collections.shuffle(varList);
+        int K = Math.max(1,(int)(threshold*varList.size()));
+
+        varList =  varList.subList(0,K);
+
+
+
+        for (IBinding varBin : varList) {
             if (counter >= Config.maxTrans) break;
             String newName = "___MASKED_";
             ArrayList<SimpleName> vars = this.bindings2names.get(varBin);

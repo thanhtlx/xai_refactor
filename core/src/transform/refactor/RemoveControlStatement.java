@@ -9,6 +9,7 @@ import org.eclipse.text.edits.TextEdit;
 import transform.Utils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Objects;
 
 public class RemoveControlStatement extends ASTVisitor {
@@ -19,42 +20,42 @@ public class RemoveControlStatement extends ASTVisitor {
     ArrayList<IfStatement> ifStatementBin = new ArrayList<IfStatement>();
     ArrayList<ForStatement> forsBin = new ArrayList<ForStatement>();
     ArrayList<WhileStatement> whilesBin = new ArrayList<WhileStatement>();
+    float threshold;
 
-
-    public RemoveControlStatement(CompilationUnit cu_, Document document_, String outputDirPath_, ArrayList targetLines) {
+    public RemoveControlStatement(CompilationUnit cu_, Document document_, String outputDirPath_, ArrayList targetLines, float threshold) {
         this.cu = cu_;
         this.document = document_;
         this.outputDirPath = outputDirPath_;
         this.targetLines = targetLines;
+        this.threshold = threshold;
     }
 
 
     public boolean visit(IfStatement node) {
-        if (Utils.checkTargetLines(this.targetLines, this.cu, node)) {
-            ifStatementBin.add(node);
-        }
+        ifStatementBin.add(node);
         return true;
     }
 
     public boolean visit(ForStatement node) {
         //Visit all for-loop statement
-        if (Utils.checkTargetLines(targetLines, cu, node)) {
-            forsBin.add(node);
-        }
+
         return true;
     }
 
     public boolean visit(WhileStatement node) {
         //visit while-loop statements
-        if (Utils.checkTargetLines(targetLines, cu, node)) {
-            whilesBin.add(node);
-        }
         return true;
     }
 
     public void endVisit(CompilationUnit node) {
         AST ast = cu.getAST();
         ASTRewrite rewriter = ASTRewrite.create(ast);
+
+        Collections.shuffle(ifStatementBin);
+        int K = Math.max(1,(int)(threshold*ifStatementBin.size()));
+
+        ifStatementBin = (ArrayList<IfStatement>) ifStatementBin.subList(0,K);
+
         for (IfStatement ifer : ifStatementBin) {
             //#dev //
             ArrayList<Object> els = new ArrayList<>();

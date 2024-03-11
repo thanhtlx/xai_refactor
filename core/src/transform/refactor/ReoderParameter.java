@@ -19,18 +19,17 @@ public class ReoderParameter extends ASTVisitor {
     Document document;
     String outputDirPath;
     ArrayList targetLines;
+    float threshold;
 
-    public ReoderParameter(CompilationUnit cu_, Document document_, String outputDirPath_, ArrayList targetLines) {
+    public ReoderParameter(CompilationUnit cu_, Document document_, String outputDirPath_, ArrayList targetLines, float threshold) {
         this.cu = cu_;
         this.document = document_;
         this.outputDirPath = outputDirPath_;
         this.targetLines = targetLines;
-        System.out.println("reorder parameter");
-        System.out.println(targetLines);
+        this.threshold = threshold;
     }
 
     public boolean visit(MethodDeclaration node) {
-        System.out.println(node + " " + node.getNodeType());
         funcs.add(node);
         return true;
     }

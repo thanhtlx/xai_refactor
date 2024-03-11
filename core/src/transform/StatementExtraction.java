@@ -23,7 +23,7 @@ public class StatementExtraction {
 //    static final int ChangeOperator = 8;
 //    static final int RemoveUseStatement = 9;
 
-    static ArrayList<Integer> getStatements(String code, int typeStatement, float threshold) {
+    static ArrayList<Integer> getStatements(String code, int typeStatement) {
         ArrayList<Integer> result = new ArrayList<>();
 
         switch (typeStatement) {
@@ -55,15 +55,7 @@ public class StatementExtraction {
                 result = getStatement(code);
                 break;
         }
-        if (true)
         return result;
-
-        ArrayList<Integer> tmp = new ArrayList<>();
-        if (result.size() >0)
-        tmp.add(result.get(0));
-        System.out.println("size");
-        System.out.println(tmp.size());
-        return tmp;
     }
 
     private static ArrayList<Integer> getStatement(String code) {

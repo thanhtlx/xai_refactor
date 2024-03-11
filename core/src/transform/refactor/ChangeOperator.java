@@ -7,21 +7,25 @@ import org.eclipse.text.edits.TextEdit;
 import transform.Utils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 //not done
 public class ChangeOperator extends ASTVisitor{
 	ArrayList targetLines;
+
 	CompilationUnit cu = null;
 	Document document = null;
 	String outputDirPath = null;
+	float threshold;
 	List<InfixExpression> relationStatementBin = new ArrayList<InfixExpression>();
 
-	public ChangeOperator(CompilationUnit cu_, Document document_, String outputDirPath_, ArrayList targetLines) {
+	public ChangeOperator(CompilationUnit cu_, Document document_, String outputDirPath_, ArrayList targetLines, float threshold) {
 		this.cu = cu_;
 		this.document = document_;
 		this.outputDirPath = outputDirPath_;
 		this.targetLines = targetLines;
+		this.threshold = threshold;
 	}
 
 
@@ -31,9 +35,7 @@ public class ChangeOperator extends ASTVisitor{
 				|| node.getOperator().equals(InfixExpression.Operator.TIMES)
 				|| node.getOperator().equals(InfixExpression.Operator.REMAINDER)
 				|| node.getOperator().equals(InfixExpression.Operator.DIVIDE)) {
-			if(Utils.checkTargetLines(this.targetLines, this.cu, node)){
-				relationStatementBin.add(node);
-			}
+			relationStatementBin.add(node);
 		}
 		return true;
 	}
@@ -57,9 +59,18 @@ public class ChangeOperator extends ASTVisitor{
 		AST ast = cu.getAST();
 		ASTRewrite rewriter = ASTRewrite.create(ast);
 
+
+
 		if (relationStatementBin.size() == 0) {
 			return;
 		}
+
+		Collections.shuffle(relationStatementBin);
+		int K = Math.max(1,(int)(threshold*relationStatementBin.size()));
+
+		relationStatementBin = relationStatementBin.subList(0,K);
+		// sample like threshold
+
 		for(InfixExpression equ : relationStatementBin) {
 			InfixExpression copyedOne = (InfixExpression) ASTNode.copySubtree(ast, equ);
 			InfixExpression.Operator op = getOppositeOperator(equ.getOperator());
