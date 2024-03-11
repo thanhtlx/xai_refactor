@@ -55,15 +55,12 @@ public class StatementExtraction {
                 result = getStatement(code);
                 break;
         }
+        if (true)
+        return result;
+
         ArrayList<Integer> tmp = new ArrayList<>();
         if (result.size() >0)
         tmp.add(result.get(0));
-//        Collections.shuffle(result);
-//        int K = (int) (result.size() * threshold);
-//        if (K > 0)
-//            for (int line : result.subList(0, K)) {
-//                tmp.add(line);
-//            }
         System.out.println("size");
         System.out.println(tmp.size());
         return tmp;

@@ -26,7 +26,7 @@ public class RenameVariable extends ASTVisitor {
     }
 
     public boolean visit(SimpleName node) {
-//        System.out.println();
+//        System.out.println(node.getParent());
         // resolve the binding (i.e., the reference) to the declaration of a node
         IBinding ibd = node.resolveBinding();
 

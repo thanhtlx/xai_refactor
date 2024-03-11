@@ -39,15 +39,14 @@ public class ReoderParameter extends ASTVisitor {
         AST ast = cu.getAST();
         ASTRewrite rewriter = ASTRewrite.create(ast);
         for (MethodDeclaration func : funcs) {
-//
-            List<ASTNode> tmp = func.parameters();
-//            Collections.reverse(tmp);
-//            tmp.sort((o1, o2) -> -o1.getStartPosition() + o2.getStartPosition());
-            func.setProperty("parameters",tmp);
-//            System.out.println(func.getAST().pa);
-//            func.setProperty();
-//            func.set
-
+            MethodDeclaration nfunc = (MethodDeclaration) ASTNode.copySubtree(ast, func);
+            ArrayList<Object> pars = new ArrayList<>();
+            for (Object st : nfunc.parameters()) pars.add(st);
+            nfunc.parameters().clear();
+            for(int i = pars.size()-1;i>=0;i--){
+                nfunc.parameters().add(ASTNode.copySubtree(ast, (ASTNode) pars.get(i)));
+            }
+            rewriter.replace(func, nfunc, null);
         }
         TextEdit edits = rewriter.rewriteAST(document, null);
         Utils.applyRewrite(edits, document, outputDirPath);

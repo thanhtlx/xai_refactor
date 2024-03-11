@@ -15,7 +15,7 @@ public class Config {
 //    static final int ChangeOperator = 8;
 //    static final int RemoveUseStatement = 9;
     public static String inDir = "input";
-    public static String ruleID = "7";
+    public static String ruleID = "1";
 
     public static String outDir = "output/" + ruleID + "/";
 
