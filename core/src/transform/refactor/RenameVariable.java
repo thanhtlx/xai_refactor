@@ -66,13 +66,16 @@ public class RenameVariable extends ASTVisitor {
 
         varList =  varList.subList(0,K);
 
-
+        int count = 0;
+        HashMap<String,String> mapping = new HashMap<>();
 
         for (IBinding varBin : varList) {
             if (counter >= Config.maxTrans) break;
+            count += 1;
             String newName = "___MASKED_";
             ArrayList<SimpleName> vars = this.bindings2names.get(varBin);
-            System.out.println("==>" + vars.get(0) + " is replaced by " + newName + vars.get(0));
+//            mapping.put(String.valueOf(vars.get(0)),String.valueOf(count));
+            System.out.println("==>" + vars.get(0) + " is replaced by " + newName + String.valueOf(count));
             boolean is_hit = false;
             for(SimpleName var: vars) {
                 if(targetLines.contains(cu.getLineNumber(var.getStartPosition()))){
@@ -81,7 +84,7 @@ public class RenameVariable extends ASTVisitor {
             }
             if(is_hit){
                 for(SimpleName var: vars) {
-                    rewriter.set(var, SimpleName.IDENTIFIER_PROPERTY, newName + var + "___", null);
+                    rewriter.set(var, SimpleName.IDENTIFIER_PROPERTY, newName + String.valueOf(count) + "___", null);
                 }
                 counter += 1;
             }

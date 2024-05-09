@@ -106,12 +106,12 @@ public class For2While extends ASTVisitor{
                 }
 //                System.out.println(forer);
 //                System.out.println(whiler);
-                System.out.println(rewriter.toString());
-                System.out.println("=======================");
+//                System.out.println(rewriter.toString());
+//                System.out.println("=======================");
                 rewriter.replace(forer, whiler, null);
             }
         }
-        System.out.println(rewriter.toString());
+//        System.out.println(rewriter.toString());
         //Rewrite
         TextEdit edits = rewriter.rewriteAST(document, null);
         Utils.applyRewrite(edits, document, outputDirPath);

@@ -14,11 +14,11 @@ public class Config {
 //    static final int RemoveCondition = 7;
 //    static final int ChangeOperator = 8;
 //    static final int RemoveUseStatement = 9;
-    public static String inDir = "input2";
+    public static String inDir = "source code/magic/java";
     public static String ruleID = "2";
     public static float threshold = 1;
 
-    public static String outDir = "output/" + ruleID + "/";
+    public static String outDir = "refacter_result/magic/java/" + ruleID + "/";
 
     public static String infoDir = "buggy_method_info.json";
 

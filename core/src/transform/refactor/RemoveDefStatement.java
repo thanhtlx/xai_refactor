@@ -34,6 +34,7 @@ public class RemoveDefStatement extends ASTVisitor{
 	}
 
 	public void endVisit(CompilationUnit node) {
+		if (declStatements.size() <=0 ) return;
 		AST ast = cu.getAST();
 		ASTRewrite rewriter = ASTRewrite.create(ast);
 

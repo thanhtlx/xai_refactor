@@ -18,7 +18,7 @@ public class ReverseIf extends ASTVisitor{
 	Document document = null;
 	String outputDirPath = null;
 	float threshold;
-	ArrayList<IfStatement> ifStatementBin = new ArrayList<IfStatement>();
+	List<IfStatement> ifStatementBin = new ArrayList<IfStatement>();
 
 	public ReverseIf(CompilationUnit cu_, Document document_, String outputDirPath_, ArrayList targetLines, float threshold) {
 		this.cu = cu_;
@@ -46,7 +46,7 @@ public class ReverseIf extends ASTVisitor{
 		Collections.shuffle(ifStatementBin);
 		int K = Math.max(1,(int)(threshold*ifStatementBin.size()));
 
-		ifStatementBin = (ArrayList<IfStatement>) ifStatementBin.subList(0,K);
+		ifStatementBin = ifStatementBin.subList(0,K);
 
 
 		for(IfStatement ifer: ifStatementBin){
@@ -62,6 +62,8 @@ public class ReverseIf extends ASTVisitor{
 			Statement elseStatement = (Statement) ASTNode.copySubtree(ast,ifer.getElseStatement());
 			if (elseStatement == null ) {
 				elseStatement = ast.newEmptyStatement();
+				continue;
+
 			}
 			//Lets chek if this a nested else.
 			else if(elseStatement.getNodeType() == ASTNode.IF_STATEMENT) {

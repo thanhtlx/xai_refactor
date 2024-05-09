@@ -8,13 +8,14 @@ import transform.Utils;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class While2For extends ASTVisitor {
     ArrayList targetLines;
     CompilationUnit cu = null;
     Document document = null;
     String outputDirPath = null;
-    ArrayList<WhileStatement> whileBin = new ArrayList<WhileStatement>();
+    List<WhileStatement> whileBin = new ArrayList<WhileStatement>();
     float threshold;
 
     public While2For(CompilationUnit cu_, Document document_, String outputDirPath_, ArrayList targetLines, float threshold) {
@@ -42,7 +43,7 @@ public class While2For extends ASTVisitor {
         Collections.shuffle(whileBin);
         int K = Math.max(1,(int)(threshold*whileBin.size()));
 
-        whileBin = (ArrayList<WhileStatement>) whileBin.subList(0,K);
+        whileBin = whileBin.subList(0,K);
 
 
         AST ast = cu.getAST();

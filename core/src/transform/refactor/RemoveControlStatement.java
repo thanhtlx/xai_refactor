@@ -10,6 +10,7 @@ import transform.Utils;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 
 public class RemoveControlStatement extends ASTVisitor {
@@ -17,9 +18,9 @@ public class RemoveControlStatement extends ASTVisitor {
     CompilationUnit cu = null;
     Document document = null;
     String outputDirPath = null;
-    ArrayList<IfStatement> ifStatementBin = new ArrayList<IfStatement>();
-    ArrayList<ForStatement> forsBin = new ArrayList<ForStatement>();
-    ArrayList<WhileStatement> whilesBin = new ArrayList<WhileStatement>();
+    List<IfStatement> ifStatementBin = new ArrayList<IfStatement>();
+    List<ForStatement> forsBin = new ArrayList<ForStatement>();
+    List<WhileStatement> whilesBin = new ArrayList<WhileStatement>();
     float threshold;
 
     public RemoveControlStatement(CompilationUnit cu_, Document document_, String outputDirPath_, ArrayList targetLines, float threshold) {
@@ -48,13 +49,14 @@ public class RemoveControlStatement extends ASTVisitor {
     }
 
     public void endVisit(CompilationUnit node) {
+        if(ifStatementBin.size() <= 0) return;
         AST ast = cu.getAST();
         ASTRewrite rewriter = ASTRewrite.create(ast);
 
         Collections.shuffle(ifStatementBin);
         int K = Math.max(1,(int)(threshold*ifStatementBin.size()));
 
-        ifStatementBin = (ArrayList<IfStatement>) ifStatementBin.subList(0,K);
+        ifStatementBin = ifStatementBin.subList(0,K);
 
         for (IfStatement ifer : ifStatementBin) {
             //#dev //
@@ -68,13 +70,15 @@ public class RemoveControlStatement extends ASTVisitor {
             }else{
                 els.add(ifer.getThenStatement());
             }
-            if (ifer.getElseStatement().getNodeType() == ASTNode.BLOCK) {
-                Block tmpThen = (Block) ifer.getElseStatement();
-                for (Object st : tmpThen.statements()) {
-                    els.add(st);
+            if(ifer.getElseStatement() != null) {
+                if (ifer.getElseStatement().getNodeType() == ASTNode.BLOCK) {
+                    Block tmpThen = (Block) ifer.getElseStatement();
+                    for (Object st : tmpThen.statements()) {
+                        els.add(st);
+                    }
+                } else {
+                    els.add(ifer.getElseStatement());
                 }
-            }else{
-                els.add(ifer.getElseStatement());
             }
 
             Block blockoutsideWhile;
